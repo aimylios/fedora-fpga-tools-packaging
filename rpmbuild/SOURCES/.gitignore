@@ -1,0 +1,10 @@
+# generated source files for openocd
+openocd-*.tar.xz
+
+# auto-fetched source files for yosys
+viz.js
+yosys_0.9-1.debian.tar.xz
+yosys-*.tar.gz
+
+# auto-fetched source files for ghdl
+ghdl-*
