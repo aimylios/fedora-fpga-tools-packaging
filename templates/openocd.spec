@@ -11,6 +11,7 @@ URL:            https://sourceforge.net/projects/openocd
 
 Source0:        %{name}-%{shortcommit0}.tar.xz
 
+BuildRequires:  autoconf
 BuildRequires:  chrpath
 BuildRequires:  gcc
 BuildRequires:  hidapi-devel
@@ -115,5 +116,8 @@ chrpath --delete %{buildroot}/%{_bindir}/openocd
 
 
 %changelog
+* Thu May 7 2020 Aimylios <aimylios@xxx.xx> - 0.10.0-99.%{snapdate}git%{shortcommit0}
+- Add autoconf as build-time dependency
+
 * Fri May 1 2020 Aimylios <aimylios@xxx.xx> - 0.10.0-99.%{snapdate}git%{shortcommit0}
 - Initial version for nightly builds based on 0.10.0-15
