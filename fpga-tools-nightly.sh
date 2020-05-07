@@ -147,6 +147,7 @@ fi
 # gtkwave
 COMMIT=$(get_github_commithash "gtkwave" "gtkwave" "master")
 if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
+    clean_rpmbuild "gtkwave"
     SNAPDATE=$(get_github_snapdate "gtkwave" "gtkwave" "master")
     export_spec "gtkwave" "${SNAPDATE}" "${COMMIT}"
     push_spec_to_copr "gtkwave"
@@ -155,6 +156,7 @@ fi
 # iverilog
 COMMIT=$(get_github_commithash "iverilog" "steveicarus" "master")
 if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
+    clean_rpmbuild "iverilog"
     SNAPDATE=$(get_github_snapdate "iverilog" "steveicarus" "master")
     export_spec "iverilog" "${SNAPDATE}" "${COMMIT}"
     push_spec_to_copr "iverilog"
@@ -163,6 +165,7 @@ fi
 # yosys
 COMMIT=$(get_github_commithash "yosys" "YosysHQ" "master")
 if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
+    clean_rpmbuild "yosys"
     SNAPDATE=$(get_github_snapdate "yosys" "YosysHQ" "master")
     get_github_source "yosys" "YosysHQ" "${COMMIT}"
     export_spec "yosys" "${SNAPDATE}" "${COMMIT}"
@@ -173,6 +176,7 @@ fi
 # ghdl
 COMMIT=$(get_github_commithash "ghdl" "ghdl" "master")
 if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
+    clean_rpmbuild "ghdl"
     SNAPDATE=$(get_github_snapdate "ghdl" "ghdl" "master")
     export_spec "ghdl" "${SNAPDATE}" "${COMMIT}"
     build_srpm "ghdl"
@@ -182,6 +186,7 @@ fi
 # ghdl-yosys-plugin
 COMMIT=$(get_github_commithash "ghdl-yosys-plugin" "ghdl" "master")
 if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
+    clean_rpmbuild "ghdl-yosys-plugin"
     SNAPDATE=$(get_github_snapdate "ghdl-yosys-plugin" "ghdl" "master")
     export_spec "ghdl-yosys-plugin" "${SNAPDATE}" "${COMMIT}"
     push_spec_to_copr "ghdl-yosys-plugin"
@@ -190,6 +195,7 @@ fi
 # icestorm
 COMMIT=$(get_github_commithash "icestorm" "cliffordwolf" "master")
 if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
+    clean_rpmbuild "icestorm"
     SNAPDATE=$(get_github_snapdate "icestorm" "cliffordwolf" "master")
     export_spec "icestorm" "${SNAPDATE}" "${COMMIT}"
     push_spec_to_copr "icestorm"
@@ -198,6 +204,7 @@ fi
 # trellis
 COMMIT0=$(get_github_commithash "prjtrellis" "SymbiFlow" "master")
 if ! grep -r "${COMMIT0}" rpmbuild/SPECS/; then
+    clean_rpmbuild "trellis"
     SNAPDATE=$(get_github_snapdate "prjtrellis" "SymbiFlow" "master")
     COMMIT1=$(get_github_commithash "prjtrellis-db" "SymbiFlow" "master")
     export_spec "trellis" "${SNAPDATE}" "${COMMIT0}" "${COMMIT1}"
@@ -207,6 +214,7 @@ fi
 # arachne-pnr
 COMMIT=$(get_github_commithash "arachne-pnr" "YosysHQ" "master")
 if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
+    clean_rpmbuild "arachne-pnr"
     SNAPDATE=$(get_github_snapdate "arachne-pnr" "YosysHQ" "master")
     export_spec "arachne-pnr" "${SNAPDATE}" "${COMMIT}"
     push_spec_to_copr "arachne-pnr"
@@ -215,6 +223,7 @@ fi
 # nextpnr
 COMMIT=$(get_github_commithash "nextpnr" "YosysHQ" "master")
 if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
+    clean_rpmbuild "nextpnr"
     SNAPDATE=$(get_github_snapdate "nextpnr" "YosysHQ" "master")
     export_spec "nextpnr" "${SNAPDATE}" "${COMMIT}"
     push_spec_to_copr "nextpnr"
