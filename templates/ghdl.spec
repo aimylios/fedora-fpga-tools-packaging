@@ -467,6 +467,7 @@ rm -f \
     .%{_prefix}/lib/libmudflap.* \
     .%{_prefix}/lib/libmudflapth.* \
     .%{_prefix}/lib/lib{atomic,gomp,quadmath,ssp}* \
+    .%{_prefix}/lib/libghdl.{a,link} \
     .%{_libdir}/32/libiberty.a
 
 # Remove crt/libgcc, as ghdl invokes the native gcc to perform the linking
@@ -532,5 +533,8 @@ mv %{buildroot}/usr/lib/libghdl-*.so %{buildroot}%{_libdir}/
 
 
 %changelog
+* Sun May 31 2020 Aimylios <aimylios@xxx.xx> - 0.38~dev-99.%{snapdate}git%{shortcommit0}
+- Do not package static library
+
 * Fri May 1 2020 Aimylios <aimylios@xxx.xx> - 0.38~dev-99.%{snapdate}git%{shortcommit0}
 - Initial version for nightly builds based on 0.38~dev-2.20200428gitad4e2f3
