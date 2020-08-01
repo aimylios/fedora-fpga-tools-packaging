@@ -55,8 +55,8 @@ cp 3rdparty/python-console/LICENSE LICENSE-python-console.txt
 %build
 %cmake . \
     -DARCH=all \
-    -DICEBOX_ROOT=%{_datadir}/icestorm \
-    -DTRELLIS_ROOT=%{_datadir}/trellis \
+    -DICESTORM_INSTALL_PREFIX=%{_datadir}/icestorm \
+    -DTRELLIS_INSTALL_PREFIX=%{_datadir}/trellis \
     -DCURRENT_GIT_VERSION=%{shortcommit0}
 %make_build
 # prepare examples doc. directory:
@@ -78,5 +78,8 @@ cp -r ice40/examples/* examples/ice40
 
 
 %changelog
+* Sat Aug 1 2020 Aimylios <aimylios@xxx.xx> - 0-0.99.%{snapdate}git%{shortcommit0}
+- Update CMake variables
+
 * Fri May 1 2020 Aimylios <aimylios@xxx.xx> - 0-0.99.%{snapdate}git%{shortcommit0}
 - Initial version for nightly builds based on 0-0.10.20200129git85f4452
