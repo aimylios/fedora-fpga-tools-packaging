@@ -193,10 +193,10 @@ if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
 fi
 
 # icestorm
-COMMIT=$(get_github_commithash "icestorm" "cliffordwolf" "master")
+COMMIT=$(get_github_commithash "icestorm" "YosysHQ" "master")
 if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
     clean_rpmbuild "icestorm"
-    SNAPDATE=$(get_github_snapdate "icestorm" "cliffordwolf" "master")
+    SNAPDATE=$(get_github_snapdate "icestorm" "YosysHQ" "master")
     export_spec "icestorm" "${SNAPDATE}" "${COMMIT}"
     push_spec_to_copr "icestorm"
 fi
