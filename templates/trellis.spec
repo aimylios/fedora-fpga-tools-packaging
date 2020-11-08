@@ -63,8 +63,12 @@ find . -name \.gitignore -delete
 
 
 %build
+# building manpages requires in-source build:
+%define __cmake_in_source_build 1
+# disable LTO to allow building for f33 rawhide (BZ 1865586):
+%define _lto_cflags %{nil}
 %cmake libtrellis -DCURRENT_GIT_VERSION=%{version}-%{release}
-%make_build
+%cmake_build
 # build manpages:
 mkdir man1
 for f in ecp*
@@ -78,7 +82,7 @@ done
 
 
 %install
-%make_install PREFIX="%{_prefix}"
+%cmake_install
 install -D -p -m 644 -t %{buildroot}%{_mandir}/man1 man1/*
 
 
@@ -104,5 +108,9 @@ install -D -p -m 644 -t %{buildroot}%{_mandir}/man1 man1/*
 
 
 %changelog
+* Sun Nov 8 2020 Aimylios <aimylios@xxx.xx> - 1.0-99.%{snapdate}git%{shortcommit0}
+- Fix usage of cmake macros
+- Disable LTO for now (RHBZ 1865586)
+
 * Fri May 1 2020 Aimylios <aimylios@xxx.xx> - 1.0-99.%{snapdate}git%{shortcommit0}
 - Initial version for nightly builds based on 1.0-0.7.20200127git30ee6f2
