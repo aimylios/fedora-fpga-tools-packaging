@@ -24,6 +24,7 @@ BuildRequires:  icestorm
 BuildRequires:  libglvnd-devel
 BuildRequires:  make
 BuildRequires:  python3-devel
+BuildRequires:  python3-setuptools
 BuildRequires:  qt5-qtconfiguration-devel
 BuildRequires:  trellis-devel
 
@@ -58,14 +59,14 @@ cp 3rdparty/python-console/LICENSE LICENSE-python-console.txt
     -DICEBOX_DATADIR=%{_datadir}/icestorm \
     -DTRELLIS_LIBDIR=%{_libdir}/trellis \
     -DCURRENT_GIT_VERSION=%{shortcommit0}
-%make_build
+%cmake_build
 # prepare examples doc. directory:
 mkdir -p examples/ice40
 cp -r ice40/examples/* examples/ice40
 
 
 %install
-%make_install
+%cmake_install
 
 
 %files
@@ -78,6 +79,10 @@ cp -r ice40/examples/* examples/ice40
 
 
 %changelog
+* Sun Nov 8 2020 Aimylios <aimylios@xxx.xx> - 0-0.99.%{snapdate}git%{shortcommit0}
+- Fix usage of cmake macros
+- Add python3-setuptools as build-time requirement
+
 * Sat Aug 8 2020 Aimylios <aimylios@xxx.xx> - 0-0.99.%{snapdate}git%{shortcommit0}
 - Explicitly set ICEBOX_DATADIR instead of ICESTORM_INSTALL_PREFIX
 - Explicitly set TRELLIS_LIBDIR instead of TRELLIS_INSTALL_PREFIX
