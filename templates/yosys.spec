@@ -23,6 +23,7 @@ BuildRequires:  flex
 BuildRequires:  gcc-c++
 BuildRequires:  iverilog
 BuildRequires:  libffi-devel
+BuildRequires:  make
 BuildRequires:  pkgconfig
 BuildRequires:  python3
 BuildRequires:  readline-devel
@@ -117,5 +118,8 @@ install -m 0644 yosys-smtbmc.1 debian/yosys{,-config,-filterlib}.1 %{buildroot}%
 
 
 %changelog
+* Wed Feb 17 2021 Aimylios <aimylios@xxx.xx> - 0.9-99.%{snapdate}git%{shortcommit0}
+- Add make as explicit build-time dependency
+
 * Fri May 1 2020 Aimylios <aimylios@xxx.xx> - 0.9-99.%{snapdate}git%{shortcommit0}
 - Initial version for nightly builds based on 0.9-4
