@@ -30,7 +30,7 @@
 %global build_isl 1
 
 Name:           ghdl
-Version:        0.38~dev
+Version:        2.0.0~dev
 Release:        99.%{snapdate}git%{shortcommit0}%{?dist}
 Summary:        A VHDL simulator, using the GCC technology
 License:        GPLv2+ and GPLv3+ and GPLv3+ with exceptions and GPLv2+ with exceptions and LGPLv2+ and BSD
@@ -113,6 +113,7 @@ BuildRequires:  llvm
 BuildRequires:  llvm-devel
 BuildRequires:  llvm-static
 %endif
+BuildRequires:  make
 
 Requires: ghdl-grt = %{version}-%{release}
 
@@ -547,6 +548,9 @@ rm %{buildroot}/usr/lib/libghdl.{a,link}
 
 
 %changelog
+* Wed Feb 17 2021 Aimylios <aimylios@xxx.xx> - 2.0.0~dev-99.%{snapdate}git%{shortcommit0}
+- Add make as explicit build-time dependency
+
 * Sun Nov 8 2020 Aimylios <aimylios@xxx.xx> - 0.38~dev-99.%{snapdate}git%{shortcommit0}
 - Backport updates from Fedora upstream
 
