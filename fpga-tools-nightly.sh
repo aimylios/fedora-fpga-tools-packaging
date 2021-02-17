@@ -144,15 +144,6 @@ if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
     push_srpm_to_copr "openocd"
 fi
 
-# gtkwave
-COMMIT=$(get_github_commithash "gtkwave" "gtkwave" "master")
-if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
-    clean_rpmbuild "gtkwave"
-    SNAPDATE=$(get_github_snapdate "gtkwave" "gtkwave" "master")
-    export_spec "gtkwave" "${SNAPDATE}" "${COMMIT}"
-    push_spec_to_copr "gtkwave"
-fi
-
 # iverilog
 COMMIT=$(get_github_commithash "iverilog" "steveicarus" "master")
 if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
