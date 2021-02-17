@@ -3,7 +3,7 @@
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 Name:           openocd
-Version:        0.10.0
+Version:        0.11.0
 Release:        99.%{snapdate}git%{shortcommit0}%{?dist}
 Summary:        Debugging, in-system programming and boundary-scan testing for embedded devices
 License:        GPLv2
@@ -17,9 +17,11 @@ BuildRequires:  gcc
 BuildRequires:  hidapi-devel
 BuildRequires:  jimtcl-devel
 BuildRequires:  libftdi-devel
+BuildRequires:  libgpiod-devel
 BuildRequires:  libjaylink-devel
 BuildRequires:  libusb-devel
 BuildRequires:  libusbx-devel
+BuildRequires:  make
 BuildRequires:  sdcc
 BuildRequires:  texinfo
 
@@ -67,6 +69,7 @@ popd
     --enable-ft232r \
     --enable-vsllink \
     --enable-xds110 \
+    --enable-cmsis-dap-v2 \
     --enable-osbdm \
     --enable-opendous \
     --enable-aice \
@@ -74,20 +77,24 @@ popd
     --enable-rlink \
     --enable-armjtagew \
     --enable-cmsis-dap \
+    --enable-nulink \
     --enable-kitprog \
     --enable-usb-blaster \
     --enable-presto \
     --enable-openjtag \
     --enable-jlink \
     --enable-parport \
-    --enable-parport_ppdev \
     --enable-jtag_vpi \
+    --enable-jtag_dpi \
+    --enable-ioutil \
     --enable-amtjtagaccel \
     --enable-ep39xx \
     --enable-at91rm9200 \
     --enable-gw16012 \
+    --enable-oocd_trace \
     --enable-buspirate \
     --enable-sysfsgpio \
+    --enable-linuxgpiod \
     --enable-xlnx-pcie-xvc \
     --enable-remote-bitbang \
     --disable-internal-jimtcl \
@@ -107,7 +114,7 @@ chrpath --delete %{buildroot}/%{_bindir}/openocd
 
 %files
 %license COPYING
-%doc README AUTHORS
+%doc AUTHORS NEWS* NEWTAPS README TODO
 %{_bindir}/%{name}
 %{_datadir}/%{name}
 %{_infodir}/%{name}.info*.gz
@@ -116,6 +123,11 @@ chrpath --delete %{buildroot}/%{_bindir}/openocd
 
 
 %changelog
+* Wed Feb 17 2021 Aimylios <aimylios@xxx.xx> - 0.11.0-99.%{snapdate}git%{shortcommit0}
+- Add make and libgpiod-devel as build-time dependencies
+- Update build configuration
+- Correctly package license and documentation
+
 * Thu May 7 2020 Aimylios <aimylios@xxx.xx> - 0.10.0-99.%{snapdate}git%{shortcommit0}
 - Add autoconf as build-time dependency
 
