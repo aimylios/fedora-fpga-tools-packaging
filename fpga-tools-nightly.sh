@@ -193,11 +193,11 @@ if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
 fi
 
 # trellis
-COMMIT0=$(get_github_commithash "prjtrellis" "SymbiFlow" "master")
+COMMIT0=$(get_github_commithash "prjtrellis" "YosysHQ" "master")
 if ! grep -r "${COMMIT0}" rpmbuild/SPECS/; then
     clean_rpmbuild "trellis"
-    SNAPDATE=$(get_github_snapdate "prjtrellis" "SymbiFlow" "master")
-    COMMIT1=$(get_github_commithash "prjtrellis-db" "SymbiFlow" "master")
+    SNAPDATE=$(get_github_snapdate "prjtrellis" "YosysHQ" "master")
+    COMMIT1=$(get_github_commithash "prjtrellis-db" "YosysHQ" "master")
     export_spec "trellis" "${SNAPDATE}" "${COMMIT0}" "${COMMIT1}"
     push_spec_to_copr "trellis"
 fi

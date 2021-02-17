@@ -9,14 +9,15 @@ Version:        1.0
 Release:        99.%{snapdate}git%{shortcommit0}%{?dist}
 Summary:        Lattice ECP5 FPGA bitstream creation/analysis/programming tools
 License:        ISC
-URL:            https://github.com/SymbiFlow/prjtrellis
+URL:            https://github.com/YosysHQ/prjtrellis
 
-Source0:        https://github.com/SymbiFlow/prjtrellis/archive/%{commit0}/prjtrellis-%{shortcommit0}.tar.gz
-Source1:        https://github.com/SymbiFlow/prjtrellis-db/archive/%{commit1}/prjtrellis-db-%{shortcommit1}.tar.gz
+Source0:        https://github.com/YosysHQ/prjtrellis/archive/%{commit0}/prjtrellis-%{shortcommit0}.tar.gz
+Source1:        https://github.com/YosysHQ/prjtrellis-db/archive/%{commit1}/prjtrellis-db-%{shortcommit1}.tar.gz
 
 BuildRequires:  boost-python3-devel
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
+BuildRequires:  make
 BuildRequires:  python3-devel
 # for building manpages:
 BuildRequires:  help2man
@@ -65,8 +66,6 @@ find . -name \.gitignore -delete
 %build
 # building manpages requires in-source build:
 %define __cmake_in_source_build 1
-# disable LTO to allow building for f33 rawhide (BZ 1865586):
-%define _lto_cflags %{nil}
 %cmake libtrellis -DCURRENT_GIT_VERSION=%{version}-%{release}
 %cmake_build
 # build manpages:
@@ -108,6 +107,11 @@ install -D -p -m 644 -t %{buildroot}%{_mandir}/man1 man1/*
 
 
 %changelog
+* Wed Feb 17 2021 Aimylios <aimylios@xxx.xx> - 1.0-99.%{snapdate}git%{shortcommit0}
+- Update source URLs
+- Add make as explicit build-time dependency
+- Re-enable LTO
+
 * Sun Nov 8 2020 Aimylios <aimylios@xxx.xx> - 1.0-99.%{snapdate}git%{shortcommit0}
 - Fix usage of cmake macros
 - Disable LTO for now (RHBZ 1865586)
