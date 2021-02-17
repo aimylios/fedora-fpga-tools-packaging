@@ -3,7 +3,7 @@
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 Name:           iverilog
-Version:        11.0
+Version:        12.0
 Release:        0.1.%{snapdate}git%{shortcommit0}%{?dist}
 Summary:        Icarus Verilog is a verilog compiler and simulator
 License:        GPLv2
@@ -17,6 +17,7 @@ BuildRequires:  bzip2-devel
 BuildRequires:  flex
 BuildRequires:  gcc-c++
 BuildRequires:  gperf
+BuildRequires:  make
 BuildRequires:  readline-devel
 BuildRequires:  zlib-devel
 
@@ -75,5 +76,8 @@ make check
 
 
 %changelog
+* Wed Feb 17 2021 Aimylios <aimylios@xxx.xx> - 12.0-0.1.%{snapdate}git%{shortcommit0}
+- Add make as explicit build-time dependency
+
 * Fri May 1 2020 Aimylios <aimylios@xxx.xx> - 11.0-0.1.%{snapdate}git%{shortcommit0}
 - Initial version for nightly builds based on 10.3-3
