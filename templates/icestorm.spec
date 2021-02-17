@@ -15,6 +15,7 @@ Source0:        https://github.com/YosysHQ/icestorm/archive/%{commit0}/%{name}-%
 
 BuildRequires:  gcc-c++
 BuildRequires:  libftdi-devel
+BuildRequires:  make
 BuildRequires:  python3
 
 %description
@@ -56,6 +57,9 @@ install -p -m 644 icefuzz/timings_*.txt %{buildroot}%{_datarootdir}/%{name}
 
 
 %changelog
+* Wed Feb 17 2021 Aimylios <aimylios@xxx.xx> - 0-0.99.%{snapdate}git%{shortcommit0}
+- Add make as explicit build-time dependency
+
 * Sat Aug 8 2020 Aimylios <aimylios@xxx.xx> - 0-0.99.%{snapdate}git%{shortcommit0}
 - Update source repository
 
