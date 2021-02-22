@@ -245,6 +245,7 @@ mv ghdl-%{commit0} ghdl
 
 # fix library and include path
 pushd ghdl
+mkdir -p lib
 sed -i.orig -e 's|\"lib\"|\"%{_lib}\"|' -e 's|\"include\"|\"include/ghdl\"|' src/ghdldrv/ghdlsynth.adb
 sed -i.orig -e 's|\"lib\"|\"%{_lib}\"|' -e 's|\"include\"|\"include/ghdl\"|' src/ghdldrv/ghdlvpi.adb
 popd
