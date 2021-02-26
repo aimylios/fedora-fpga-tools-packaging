@@ -31,6 +31,9 @@ formats, including simulation. It strives to be true to the IEEE-1364 standard.
 find . -type f -name ".git" -exec rm '{}' \;
 rm -rf `find . -type d -name "autom4te.cache" -exec echo '{}' \;`
 
+# set VERSION_TAG to the correct value
+sed -i 's/VERSION_TAG ""/VERSION_TAG "%{shortcommit0}"/g' Makefile.in
+
 
 %build
 chmod +x autoconf.sh
@@ -76,6 +79,9 @@ make check
 
 
 %changelog
+* Fri Feb 26 2021 Aimylios <aimylios@xxx.xx> - 12.0-0.1.%{snapdate}git%{shortcommit0}
+- Manually set the git revision to the correct value
+
 * Wed Feb 17 2021 Aimylios <aimylios@xxx.xx> - 12.0-0.1.%{snapdate}git%{shortcommit0}
 - Add make as explicit build-time dependency
 
