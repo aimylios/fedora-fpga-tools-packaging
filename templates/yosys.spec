@@ -61,6 +61,9 @@ Development files to build Yosys synthesizer plugins.
 %prep
 %autosetup -n %{name}-%{commit0}
 
+# set GIT_REV to the correct value
+sed -i 's/UNKNOWN/%{shortcommit0}/g' Makefile
+
 # Ensure that Makefile doesn't wget viz.js
 cp %{SOURCE1} .
 
@@ -118,6 +121,9 @@ install -m 0644 yosys-smtbmc.1 debian/yosys{,-config,-filterlib}.1 %{buildroot}%
 
 
 %changelog
+* Fri Feb 26 2021 Aimylios <aimylios@xxx.xx> - 0.9-99.%{snapdate}git%{shortcommit0}
+- Manually set the git revision to the correct value
+
 * Wed Feb 17 2021 Aimylios <aimylios@xxx.xx> - 0.9-99.%{snapdate}git%{shortcommit0}
 - Add make as explicit build-time dependency
 
