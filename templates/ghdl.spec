@@ -501,6 +501,7 @@ popd
 
 install -d %{buildroot}%{_includedir}/ghdl
 mv %{buildroot}%{_includedir}/vpi_user.h %{buildroot}%{_includedir}/ghdl
+mv %{buildroot}%{_includedir}/vhpi_user.h %{buildroot}%{_includedir}/ghdl
 mv %{buildroot}%{_includedir}/ghdlsynth*.h %{buildroot}%{_includedir}/ghdl
 %if "%{_lib}" != "lib"
 mv %{buildroot}/usr/lib/libghdlvpi.so %{buildroot}%{_libdir}/
@@ -519,6 +520,7 @@ rm %{buildroot}/usr/lib/libghdl.{a,link}
 %{_libexecdir}/gcc/
 %{_mandir}/man1/*
 %{_includedir}/ghdl/vpi_user.h
+%{_includedir}/ghdl/vhpi_user.h
 %{_includedir}/ghdl/ghdlsynth*.h
 %{_libdir}/libghdl*.so
 
@@ -549,6 +551,9 @@ rm %{buildroot}/usr/lib/libghdl.{a,link}
 
 
 %changelog
+* Fri Mar 5 2021 Aimylios <aimylios@xxx.xx> - 2.0.0~dev-99.%{snapdate}git%{shortcommit0}
+- Package new header file vhpi_user.h
+
 * Wed Feb 17 2021 Aimylios <aimylios@xxx.xx> - 2.0.0~dev-99.%{snapdate}git%{shortcommit0}
 - Add make as explicit build-time dependency
 
