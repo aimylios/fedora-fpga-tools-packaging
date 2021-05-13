@@ -19,6 +19,7 @@ BuildRequires:  cmake
 BuildRequires:  gcc-c++
 BuildRequires:  make
 BuildRequires:  python3-devel
+BuildRequires:  python3-setuptools
 # for building manpages:
 BuildRequires:  help2man
 
@@ -107,6 +108,9 @@ install -D -p -m 644 -t %{buildroot}%{_mandir}/man1 man1/*
 
 
 %changelog
+* Thu May 13 2021 Aimylios <aimylios@xxx.xx> - 1.0-99.%{snapdate}git%{shortcommit0}
+- Add python3-setuptools as build-time requirement
+
 * Wed Feb 17 2021 Aimylios <aimylios@xxx.xx> - 1.0-99.%{snapdate}git%{shortcommit0}
 - Update source URLs
 - Add make as explicit build-time dependency
