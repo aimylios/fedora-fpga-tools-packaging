@@ -69,8 +69,6 @@ Patch106:       https://src.fedoraproject.org/rpms/ghdl/raw/master/f/ghdl-ppc64a
 
 Requires:       gcc
 
-Patch200:       https://src.fedoraproject.org/rpms/ghdl/raw/master/f/gcc-config.patch#/ghdl-gcc-config.patch
-
 BuildRequires:  binutils
 BuildRequires:  zlib-devel
 BuildRequires:  gettext
@@ -217,14 +215,6 @@ that tracks signal updates and schedules processes.
 %patch11 -p0 -b .pr96383~
 %patch12 -p0 -b .pr96385~
 %patch13 -p0 -b .pr96690~
-
-%patch200 -p1
-pushd libiberty
-autoconf -f
-popd
-pushd intl
-autoconf -f
-popd
 
 echo 'Red Hat %{version}-%{gcc_release}' > gcc/DEV-PHASE
 
@@ -551,6 +541,9 @@ rm %{buildroot}/usr/lib/libghdl.{a,link}
 
 
 %changelog
+* Thu May 13 2021 Aimylios <aimylios@xxx.xx> - 2.0.0~dev-99.%{snapdate}git%{shortcommit0}
+- Drop LTO fixes for configure checks
+
 * Fri Mar 5 2021 Aimylios <aimylios@xxx.xx> - 2.0.0~dev-99.%{snapdate}git%{shortcommit0}
 - Package new header file vhpi_user.h
 
