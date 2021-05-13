@@ -7,3 +7,4 @@ yosys*
 
 # auto-fetched source files for ghdl
 ghdl-*
+!ghdl-llvmflags.patch

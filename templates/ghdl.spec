@@ -60,7 +60,7 @@ Patch13:        https://src.fedoraproject.org/rpms/ghdl/raw/master/f/gcc10-pr966
 
 Source100:      https://github.com/ghdl/ghdl/archive/%{commit0}/%{name}-%{shortcommit0}.tar.gz
 
-Patch100:       https://src.fedoraproject.org/rpms/ghdl/raw/master/f/ghdl-llvmflags.patch
+Patch100:       ghdl-llvmflags.patch
 # From: Thomas Sailer <t.sailer@alumni.ethz.ch>
 # To: ghdl-discuss@gna.org
 # Date: Thu, 02 Apr 2009 15:36:00 +0200
@@ -543,6 +543,7 @@ rm %{buildroot}/usr/lib/libghdl.{a,link}
 %changelog
 * Thu May 13 2021 Aimylios <aimylios@xxx.xx> - 2.0.0~dev-99.%{snapdate}git%{shortcommit0}
 - Drop LTO fixes for configure checks
+- Update ghdl-llvmflags.patch to recent changes in source files
 
 * Fri Mar 5 2021 Aimylios <aimylios@xxx.xx> - 2.0.0~dev-99.%{snapdate}git%{shortcommit0}
 - Package new header file vhpi_user.h
