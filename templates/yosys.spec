@@ -15,7 +15,7 @@ Source1:        https://github.com/mdaines/viz.js/releases/download/0.0.3/viz.js
 # https://github.com/YosysHQ/yosys/issues/278
 Source2:        http://http.debian.net/debian/pool/main/y/yosys/yosys_0.9-1.debian.tar.xz
 
-Patch0:         yosys-cfginc.patch
+Patch0:         https://src.fedoraproject.org/rpms/yosys/raw/rawhide/f/yosys-cfginc.patch
 
 BuildRequires:  abc
 BuildRequires:  bison
@@ -34,6 +34,9 @@ Requires:       %{name}-share = %{version}-%{release}
 Requires:       abc
 Requires:       graphviz
 Requires:       python-xdot
+
+# abc use broken on all Big Endian CPUs, specifically s390x (see BZ 1937362, 1937395):
+ExcludeArch:    s390x
 
 %description
 Yosys is a framework for Verilog RTL synthesis. It currently has extensive
@@ -59,7 +62,7 @@ Development files to build Yosys synthesizer plugins.
 
 
 %prep
-%autosetup -n %{name}-%{commit0}
+%autosetup -p 1 -n %{name}-%{commit0}
 
 # set GIT_REV to the correct value
 sed -i 's/UNKNOWN/%{shortcommit0}/g' Makefile
@@ -67,10 +70,10 @@ sed -i 's/UNKNOWN/%{shortcommit0}/g' Makefile
 # Ensure that Makefile doesn't wget viz.js
 cp %{SOURCE1} .
 
-# get man pages from Debian
+# Get man pages from Debian
 %setup -q -T -D -a 2 -n %{name}-%{commit0}
 
-# fix all Python shebang lines without changing timestamps
+# Remove '/usr/bin/env', without changing timestamps, in all python shebangs:
 for f in `find . -name \*.py`
 do
     sed 's|/usr/bin/env python3|/usr/bin/python3|' $f >$f.new
@@ -121,6 +124,11 @@ install -m 0644 yosys-smtbmc.1 debian/yosys{,-config,-filterlib}.1 %{buildroot}%
 
 
 %changelog
+* Thu May 13 2021 Aimylios <aimylios@xxx.xx> - 0.9-99.%{snapdate}git%{shortcommit0}
+- Align some comments with upstream
+- Download patch from Fedora servers instead of using local copy
+- Add ExcludeArch for s390x
+
 * Fri Feb 26 2021 Aimylios <aimylios@xxx.xx> - 0.9-99.%{snapdate}git%{shortcommit0}
 - Manually set the git revision to the correct value
 

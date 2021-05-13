@@ -3,8 +3,7 @@ openocd-*.tar.xz
 
 # auto-fetched source files for yosys
 viz.js
-yosys_0.9-1.debian.tar.xz
-yosys-*.tar.gz
+yosys*
 
 # auto-fetched source files for ghdl
 ghdl-*
