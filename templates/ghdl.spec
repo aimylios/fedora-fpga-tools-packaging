@@ -457,7 +457,7 @@ echo "-lgnat-`gnatmake --version| sed -n 's/^GNATMAKE \([^.]*\)\..*$/\1/p'`"
 # Remove files not to be packaged
 pushd %{buildroot}
 rm -f \
-    .%{_bindir}/{cpp,gcc,gccbug,gcov,gcov-dump,gcov-tool,lto-dump} \
+    .%{_bindir}/{cpp,gcc,gccbug,gcov,gcov-dump,gcov-tool,ghwdump,lto-dump} \
     .%{_bindir}/%{gcc_target_platform}-gcc{,-%{gcc_major}} \
     .%{_bindir}/{,%{gcc_target_platform}-}gcc-{ar,nm,ranlib} \
     .%{_includedir}/mf-runtime.h \
@@ -489,13 +489,10 @@ rm -rf \
 
 popd
 
-install -d %{buildroot}%{_includedir}/ghdl
-mv %{buildroot}%{_includedir}/vpi_user.h %{buildroot}%{_includedir}/ghdl
-mv %{buildroot}%{_includedir}/vhpi_user.h %{buildroot}%{_includedir}/ghdl
-mv %{buildroot}%{_includedir}/ghdlsynth*.h %{buildroot}%{_includedir}/ghdl
 %if "%{_lib}" != "lib"
 mv %{buildroot}/usr/lib/libghdlvpi.so %{buildroot}%{_libdir}/
 mv %{buildroot}/usr/lib/libghdl-*.so %{buildroot}%{_libdir}/
+mv %{buildroot}/usr/lib/libghw.so %{buildroot}%{_libdir}/
 %endif
 # remove static libghdl
 rm %{buildroot}/usr/lib/libghdl.{a,link}
@@ -509,10 +506,9 @@ rm %{buildroot}/usr/lib/libghdl.{a,link}
 # %%{gcc_target_platform}/%%{gcc_version} subdirectory
 %{_libexecdir}/gcc/
 %{_mandir}/man1/*
-%{_includedir}/ghdl/vpi_user.h
-%{_includedir}/ghdl/vhpi_user.h
-%{_includedir}/ghdl/ghdlsynth*.h
+%{_includedir}/ghdl/
 %{_libdir}/libghdl*.so
+%{_libdir}/libghw.so
 
 %files grt
 # Need to own directory %%{_libdir}/gcc even though we only want the
@@ -541,6 +537,9 @@ rm %{buildroot}/usr/lib/libghdl.{a,link}
 
 
 %changelog
+* Fri May 14 2021 Aimylios <aimylios@xxx.xx> - 2.0.0~dev-99.%{snapdate}git%{shortcommit0}
+- Adapt to latest changes in source files
+
 * Thu May 13 2021 Aimylios <aimylios@xxx.xx> - 2.0.0~dev-99.%{snapdate}git%{shortcommit0}
 - Drop LTO fixes for configure checks
 - Update ghdl-llvmflags.patch to recent changes in source files
