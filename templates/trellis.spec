@@ -5,7 +5,7 @@
 %global shortcommit1 %(c=%{commit1}; echo ${c:0:7})
 
 Name:           trellis
-Version:        1.0
+Version:        1.1
 Release:        99.%{snapdate}git%{shortcommit0}%{?dist}
 Summary:        Lattice ECP5 FPGA bitstream creation/analysis/programming tools
 License:        ISC
@@ -19,7 +19,6 @@ BuildRequires:  cmake
 BuildRequires:  gcc-c++
 BuildRequires:  make
 BuildRequires:  python3-devel
-BuildRequires:  python3-setuptools
 # for building manpages:
 BuildRequires:  help2man
 
@@ -108,6 +107,10 @@ install -D -p -m 644 -t %{buildroot}%{_mandir}/man1 man1/*
 
 
 %changelog
+* Fri Jan 14 2022 Aimylios <aimylios@xxx.xx> - 1.1-99.%{snapdate}git%{shortcommit0}
+- Bump version to 1.1
+- Remove python3-setuptools from build-time requirements
+
 * Thu May 13 2021 Aimylios <aimylios@xxx.xx> - 1.0-99.%{snapdate}git%{shortcommit0}
 - Add python3-setuptools as build-time requirement
 
