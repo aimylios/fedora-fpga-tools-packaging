@@ -3,7 +3,7 @@
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 Name:           yosys
-Version:        0.9
+Version:        0.13
 Release:        99.%{snapdate}git%{shortcommit0}%{?dist}
 Summary:        Yosys Open SYnthesis Suite
 License:        ISC and MIT
@@ -13,7 +13,7 @@ Source0:        https://github.com/YosysHQ/yosys/archive/%{commit0}/%{name}-%{sh
 Source1:        https://github.com/mdaines/viz.js/releases/download/0.0.3/viz.js
 
 # https://github.com/YosysHQ/yosys/issues/278
-Source2:        http://http.debian.net/debian/pool/main/y/yosys/yosys_0.9-1.debian.tar.xz
+Source2:        http://http.debian.net/debian/pool/main/y/yosys/yosys_0.9-2.debian.tar.xz
 
 Patch0:         https://src.fedoraproject.org/rpms/yosys/raw/rawhide/f/yosys-cfginc.patch
 
@@ -124,6 +124,10 @@ install -m 0644 yosys-smtbmc.1 debian/yosys{,-config,-filterlib}.1 %{buildroot}%
 
 
 %changelog
+* Fri Jan 14 2022 Aimylios <aimylios@xxx.xx> - 0.13-99.%{snapdate}git%{shortcommit0}
+- Bump version to 0.13
+- Switch to latest Debian archive for man pages
+
 * Thu May 13 2021 Aimylios <aimylios@xxx.xx> - 0.9-99.%{snapdate}git%{shortcommit0}
 - Align some comments with upstream
 - Download patch from Fedora servers instead of using local copy
