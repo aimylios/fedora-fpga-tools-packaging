@@ -3,8 +3,8 @@
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 Name:           nextpnr
-Version:        0
-Release:        0.99.%{snapdate}git%{shortcommit0}%{?dist}
+Version:        0.1
+Release:        99.%{snapdate}git%{shortcommit0}%{?dist}
 Summary:        FPGA place and route tool
 License:        ISC and BSD and MIT and (MIT or Public Domain)
 URL:            https://github.com/YosysHQ/nextpnr
@@ -58,6 +58,8 @@ cp 3rdparty/python-console/LICENSE LICENSE-python-console.txt
     -DARCH=all \
     -DICEBOX_DATADIR=%{_datadir}/icestorm \
     -DTRELLIS_LIBDIR=%{_libdir}/trellis \
+    -DBUILD_GUI=ON \
+    -DUSE_OPENMP=ON \
     -DCURRENT_GIT_VERSION=%{shortcommit0}
 %cmake_build
 # prepare examples doc. directory:
@@ -79,6 +81,10 @@ cp -r ice40/examples/* examples/ice40
 
 
 %changelog
+* Fri Jan 14 2022 Aimylios <aimylios@xxx.xx> - 0.1-99.%{snapdate}git%{shortcommit0}
+- Bump version to 0.1
+- Enable GUI
+
 * Sun Nov 8 2020 Aimylios <aimylios@xxx.xx> - 0-0.99.%{snapdate}git%{shortcommit0}
 - Fix usage of cmake macros
 - Add python3-setuptools as build-time requirement
