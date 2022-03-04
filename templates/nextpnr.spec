@@ -3,8 +3,9 @@
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 Name:           nextpnr
-Version:        0.1
+Version:        0.2
 Release:        99.%{snapdate}git%{shortcommit0}%{?dist}
+Epoch:          1
 Summary:        FPGA place and route tool
 License:        ISC and BSD and MIT and (MIT or Public Domain)
 URL:            https://github.com/YosysHQ/nextpnr
@@ -81,6 +82,10 @@ cp -r ice40/examples/* examples/ice40
 
 
 %changelog
+* Fri Mar 4 2022 Aimylios <aimylios@xxx.xx> - 0.2-99.%{snapdate}git%{shortcommit0}
+- Bump version to 0.2
+- Add Epoch to overwrite incorrect version of Fedora upstream package
+
 * Fri Jan 14 2022 Aimylios <aimylios@xxx.xx> - 0.1-99.%{snapdate}git%{shortcommit0}
 - Bump version to 0.1
 - Enable GUI
