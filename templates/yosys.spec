@@ -3,7 +3,7 @@
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 Name:           yosys
-Version:        0.13
+Version:        0.15
 Release:        99.%{snapdate}git%{shortcommit0}%{?dist}
 Summary:        Yosys Open SYnthesis Suite
 License:        ISC and MIT
@@ -124,6 +124,9 @@ install -m 0644 yosys-smtbmc.1 debian/yosys{,-config,-filterlib}.1 %{buildroot}%
 
 
 %changelog
+* Fri Mar 4 2022 Aimylios <aimylios@xxx.xx> - 0.15-99.%{snapdate}git%{shortcommit0}
+- Bump version to 0.15
+
 * Fri Jan 14 2022 Aimylios <aimylios@xxx.xx> - 0.13-99.%{snapdate}git%{shortcommit0}
 - Bump version to 0.13
 - Switch to latest Debian archive for man pages
