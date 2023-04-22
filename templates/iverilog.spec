@@ -3,7 +3,7 @@
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 Name:           iverilog
-Version:        12.0
+Version:        13.0
 Release:        0.1.%{snapdate}git%{shortcommit0}%{?dist}
 Summary:        Icarus Verilog is a verilog compiler and simulator
 License:        GPLv2
@@ -64,7 +64,7 @@ make check
 
 %files
 %license COPYING
-%doc BUGS.txt README.txt QUICK_START.txt
+%doc BUGS.txt QUICK_START.txt README.md
 %doc ieee1364-notes.txt mingw.txt swift.txt netlist.txt
 %doc t-dll.txt vpi.txt cadpli/cadpli.txt
 %doc xilinx-hint.txt examples/
@@ -79,6 +79,9 @@ make check
 
 
 %changelog
+* Sat Apr 22 2023 Aimylios <aimylios@xxx.xx> - 13.0-0.1.%{snapdate}git%{shortcommit0}
+- Update to latest version
+
 * Fri Feb 26 2021 Aimylios <aimylios@xxx.xx> - 12.0-0.1.%{snapdate}git%{shortcommit0}
 - Manually set the git revision to the correct value
 
