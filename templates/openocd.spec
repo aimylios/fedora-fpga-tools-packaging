@@ -3,7 +3,7 @@
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 Name:           openocd
-Version:        0.11.0
+Version:        0.12.0
 Release:        99.%{snapdate}git%{shortcommit0}%{?dist}
 Summary:        Debugging, in-system programming and boundary-scan testing for embedded devices
 License:        GPLv2
@@ -12,6 +12,7 @@ URL:            https://sourceforge.net/projects/openocd
 Source0:        %{name}-%{shortcommit0}.tar.xz
 
 BuildRequires:  autoconf
+BuildRequires:  capstone-devel
 BuildRequires:  chrpath
 BuildRequires:  gcc
 BuildRequires:  hidapi-devel
@@ -19,7 +20,6 @@ BuildRequires:  jimtcl-devel
 BuildRequires:  libftdi-devel
 BuildRequires:  libgpiod-devel
 BuildRequires:  libjaylink-devel
-BuildRequires:  libusb-devel
 BuildRequires:  libusbx-devel
 BuildRequires:  make
 BuildRequires:  sdcc
@@ -61,6 +61,7 @@ popd
     --enable-static \
     --disable-shared \
     --enable-dummy \
+    --enable-rshim \
     --enable-ftdi \
     --enable-stlink \
     --enable-ti-icdi \
@@ -72,33 +73,33 @@ popd
     --enable-cmsis-dap-v2 \
     --enable-osbdm \
     --enable-opendous \
-    --enable-aice \
-    --enable-usbprog \
-    --enable-rlink \
     --enable-armjtagew \
+    --enable-rlink \
+    --enable-usbprog \
+    --enable-esp-usb-jtag \
     --enable-cmsis-dap \
     --enable-nulink \
     --enable-kitprog \
     --enable-usb-blaster \
     --enable-presto \
     --enable-openjtag \
+    --enable-buspirate \
     --enable-jlink \
     --enable-parport \
     --enable-jtag_vpi \
+    --enable-vdebug \
     --enable-jtag_dpi \
-    --enable-ioutil \
     --enable-amtjtagaccel \
     --enable-ep39xx \
     --enable-at91rm9200 \
     --enable-gw16012 \
-    --enable-oocd_trace \
-    --enable-buspirate \
     --enable-sysfsgpio \
     --enable-linuxgpiod \
     --enable-xlnx-pcie-xvc \
-    --enable-remote-bitbang \
     --disable-internal-jimtcl \
-    --disable-doxygen-html
+    --enable-remote-bitbang \
+    --disable-doxygen-html \
+    --with-capstone
 %make_build
 
 
@@ -123,6 +124,10 @@ chrpath --delete %{buildroot}/%{_bindir}/openocd
 
 
 %changelog
+* Sat Apr 22 2023 Aimylios <aimylios@xxx.xx> - 0.12.0-99.%{snapdate}git%{shortcommit0}
+- Add capstone-devel and remove libusb-devel as build-time dependencies
+- Update build configuration
+
 * Wed Feb 17 2021 Aimylios <aimylios@xxx.xx> - 0.11.0-99.%{snapdate}git%{shortcommit0}
 - Add make and libgpiod-devel as build-time dependencies
 - Update build configuration
