@@ -7,7 +7,7 @@ Version:        0
 Release:        0.99.%{snapdate}git%{shortcommit0}%{?dist}
 Summary:        Lattice iCE40 FPGA bitstream creation/analysis/programming tools
 License:        ISC
-URL:            http://www.clifford.at/icestorm/
+URL:            https://clifford.at/icestorm/
 
 Source0:        https://github.com/YosysHQ/icestorm/archive/%{commit0}/%{name}-%{shortcommit0}.tar.gz
 
@@ -57,6 +57,9 @@ install -p -m 644 icefuzz/timings_*.txt %{buildroot}%{_datarootdir}/%{name}
 
 
 %changelog
+* Sat Apr 2 2023 Aimylios <aimylios@xxx.xx> - 0-0.99.%{snapdate}git%{shortcommit0}
+- Update URL
+
 * Wed Feb 17 2021 Aimylios <aimylios@xxx.xx> - 0-0.99.%{snapdate}git%{shortcommit0}
 - Add make as explicit build-time dependency
 
