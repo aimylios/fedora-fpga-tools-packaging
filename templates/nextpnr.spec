@@ -3,7 +3,7 @@
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 Name:           nextpnr
-Version:        0.2
+Version:        0.5
 Release:        99.%{snapdate}git%{shortcommit0}%{?dist}
 Epoch:          1
 Summary:        FPGA place and route tool
@@ -55,7 +55,7 @@ cp 3rdparty/python-console/LICENSE LICENSE-python-console.txt
 
 
 %build
-%cmake . \
+%cmake \
     -DARCH=all \
     -DICEBOX_DATADIR=%{_datadir}/icestorm \
     -DTRELLIS_LIBDIR=%{_libdir}/trellis \
@@ -82,6 +82,9 @@ cp -r ice40/examples/* examples/ice40
 
 
 %changelog
+* Sat Apr 22 2023 Aimylios <aimylios@xxx.xx> - 0.5-99.%{snapdate}git%{shortcommit0}
+- Bump version to 0.5
+
 * Fri Mar 4 2022 Aimylios <aimylios@xxx.xx> - 0.2-99.%{snapdate}git%{shortcommit0}
 - Bump version to 0.2
 - Add Epoch to overwrite incorrect version of Fedora upstream package
