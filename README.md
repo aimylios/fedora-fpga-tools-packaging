@@ -11,7 +11,7 @@ To improve this situation, I've decided to provide nightly builds for Fedora of 
 * [GHDL](http://ghdl.free.fr/)
 * [ghdl-yosys-plugin](https://github.com/ghdl/ghdl-yosys-plugin)
 * [Project IceStorm](https://clifford.at/icestorm/)
-* [Project Trellis](https://github.com/SymbiFlow/prjtrellis)
+* [Project Trellis](https://github.com/YosysHQ/prjtrellis)
 * [arachne-pnr](https://github.com/YosysHQ/arachne-pnr)
 * [nextpnr](https://github.com/YosysHQ/nextpnr)
 

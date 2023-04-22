@@ -5,7 +5,7 @@
 %global shortcommit1 %(c=%{commit1}; echo ${c:0:7})
 
 Name:           trellis
-Version:        1.2.1
+Version:        1.3
 Release:        99.%{snapdate}git%{shortcommit0}%{?dist}
 Summary:        Lattice ECP5 FPGA bitstream creation/analysis/programming tools
 License:        ISC
@@ -107,6 +107,9 @@ install -D -p -m 644 -t %{buildroot}%{_mandir}/man1 man1/*
 
 
 %changelog
+* Sat Apr 22 2023 Aimylios <aimylios@xxx.xx> - 1.3-99.%{snapdate}git%{shortcommit0}
+- Bump version to 1.3
+
 * Fri Mar 4 2022 Aimylios <aimylios@xxx.xx> - 1.2.1-99.%{snapdate}git%{shortcommit0}
 - Bump version to 1.2.1
 
