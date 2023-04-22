@@ -154,15 +154,15 @@ if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
 fi
 
 # yosys
-COMMIT=$(get_github_commithash "yosys" "YosysHQ" "master")
-if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
-    clean_rpmbuild "yosys"
-    SNAPDATE=$(get_github_snapdate "yosys" "YosysHQ" "master")
-    get_github_source "yosys" "YosysHQ" "${COMMIT}"
-    export_spec "yosys" "${SNAPDATE}" "${COMMIT}"
-    build_srpm "yosys"
-    push_srpm_to_copr "yosys"
-fi
+#COMMIT=$(get_github_commithash "yosys" "YosysHQ" "master")
+#if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
+#    clean_rpmbuild "yosys"
+#    SNAPDATE=$(get_github_snapdate "yosys" "YosysHQ" "master")
+#    get_github_source "yosys" "YosysHQ" "${COMMIT}"
+#    export_spec "yosys" "${SNAPDATE}" "${COMMIT}"
+#    build_srpm "yosys"
+#    push_srpm_to_copr "yosys"
+#fi
 
 # ghdl
 COMMIT=$(get_github_commithash "ghdl" "ghdl" "master")

@@ -7,7 +7,7 @@ Different to most other Linux distributions, Fedora tends to package the latest 
 To improve this situation, I've decided to provide nightly builds for Fedora of all the open source FPGA tools I personally use:
 * [OpenOCD](http://openocd.org/)
 * [Icarus Verilog](http://iverilog.icarus.com/)
-* [Yosys](http://www.clifford.at/yosys/)
+* [Yosys](https://yosyshq.net/yosys/) (currently not built as part of the nightlies)
 * [GHDL](http://ghdl.free.fr/)
 * [ghdl-yosys-plugin](https://github.com/ghdl/ghdl-yosys-plugin)
 * [Project IceStorm](http://www.clifford.at/icestorm/)
