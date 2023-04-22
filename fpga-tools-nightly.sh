@@ -175,13 +175,13 @@ fi
 #fi
 
 # ghdl-yosys-plugin
-COMMIT=$(get_github_commithash "ghdl-yosys-plugin" "ghdl" "master")
-if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
-    clean_rpmbuild "ghdl-yosys-plugin"
-    SNAPDATE=$(get_github_snapdate "ghdl-yosys-plugin" "ghdl" "master")
-    export_spec "ghdl-yosys-plugin" "${SNAPDATE}" "${COMMIT}"
-    push_spec_to_copr "ghdl-yosys-plugin"
-fi
+#COMMIT=$(get_github_commithash "ghdl-yosys-plugin" "ghdl" "master")
+#if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
+#    clean_rpmbuild "ghdl-yosys-plugin"
+#    SNAPDATE=$(get_github_snapdate "ghdl-yosys-plugin" "ghdl" "master")
+#    export_spec "ghdl-yosys-plugin" "${SNAPDATE}" "${COMMIT}"
+#    push_spec_to_copr "ghdl-yosys-plugin"
+#fi
 
 # icestorm
 COMMIT=$(get_github_commithash "icestorm" "YosysHQ" "master")
