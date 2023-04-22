@@ -30,7 +30,7 @@
 %global build_isl 1
 
 Name:           ghdl
-Version:        3.0.0~dev
+Version:        4.0.0~dev
 Release:        99.%{snapdate}git%{shortcommit0}%{?dist}
 Summary:        A VHDL simulator, using the GCC technology
 License:        GPLv2+ and GPLv3+ and GPLv3+ with exceptions and GPLv2+ with exceptions and LGPLv2+ and BSD
@@ -537,6 +537,9 @@ rm %{buildroot}/usr/lib/libghdl.{a,link}
 
 
 %changelog
+* Sat Apr 22 2023 Aimylios <aimylios@xxx.xx> - 4.0.0~dev-99.%{snapdate}git%{shortcommit0}
+- Bump version to 4.0.0~dev
+
 * Fri Mar 4 2022 Aimylios <aimylios@xxx.xx> - 3.0.0~dev-99.%{snapdate}git%{shortcommit0}
 - Bump version to 3.0.0~dev
 
