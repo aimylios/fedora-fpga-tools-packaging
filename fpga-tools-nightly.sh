@@ -165,14 +165,14 @@ fi
 #fi
 
 # ghdl
-COMMIT=$(get_github_commithash "ghdl" "ghdl" "master")
-if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
-    clean_rpmbuild "ghdl"
-    SNAPDATE=$(get_github_snapdate "ghdl" "ghdl" "master")
-    export_spec "ghdl" "${SNAPDATE}" "${COMMIT}"
-    build_srpm "ghdl"
-    push_srpm_to_copr "ghdl"
-fi
+#COMMIT=$(get_github_commithash "ghdl" "ghdl" "master")
+#if ! grep -r "${COMMIT}" rpmbuild/SPECS/; then
+#    clean_rpmbuild "ghdl"
+#    SNAPDATE=$(get_github_snapdate "ghdl" "ghdl" "master")
+#    export_spec "ghdl" "${SNAPDATE}" "${COMMIT}"
+#    build_srpm "ghdl"
+#    push_srpm_to_copr "ghdl"
+#fi
 
 # ghdl-yosys-plugin
 COMMIT=$(get_github_commithash "ghdl-yosys-plugin" "ghdl" "master")
